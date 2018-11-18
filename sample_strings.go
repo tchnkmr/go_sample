@@ -105,7 +105,7 @@ func main() {
 
     // 文字列の浮動小数変換
     s = "123.456"
-    sf, _ := strconv.Atof(s, 64)
+    sf, _ := strconv.ParseFloat(s, 64)
     sf = sf + 0.1
     fmt.Println(sf) // -> 123.556
 

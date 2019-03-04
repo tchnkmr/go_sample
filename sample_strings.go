@@ -59,14 +59,14 @@ func main() {
   s = "Alfa Bravo Charlie Delta Echo Foxtrot Golf"
   fmt.Println(strings.HasPrefix(s, "Alfa")) // -> true
 
-  // 文字列の先頭一致
+  // 文字列の後方一致
   s = "Alfa Bravo Charlie Delta Echo Foxtrot Golf"
   fmt.Println(strings.HasSuffix(s, "Golf")) // -> true
 
   // 文字列置換
   s = "hogehogehogehoge"
   fmt.Println(strings.Replace(s, "ge", "ji", 2)) // -> "hojihojihogehoge" 最後の引数は回数
-  fmt.Println(strings.Replace(s, "ge", "ji", 0)) // -> "hojihojihojihoji" ０で無制限
+  fmt.Println(strings.Replace(s, "ge", "ji", -1)) // -> "hojihojihojihoji" -1で無制限
 
   // 文字列繰り返し
   s = "abc"
@@ -97,16 +97,26 @@ func main() {
   fmt.Println(len(s))         // -> 8
   fmt.Println(len([]rune(s))) // -> 4
 
-    // 文字列の整数変換
-    s = "123"
-    si, _ := strconv.Atoi(s)
-    si = si + 1
-    fmt.Println(si) // -> 124
+  // 複数行文字列
+  s = `
+  This is a sample.
+  golang multiple lines.
+  `
+  fmt.Println(s) /* ->
+  This is a sample.
+  golang multiple lines.
+  */
 
-    // 文字列の浮動小数変換
-    s = "123.456"
-    sf, _ := strconv.ParseFloat(s, 64)
-    sf = sf + 0.1
-    fmt.Println(sf) // -> 123.556
+  // 文字列の整数変換
+  s = "123"
+  si, _ := strconv.Atoi(s)
+  si = si + 1
+  fmt.Println(si) // -> 124
+
+  // 文字列の浮動小数変換
+  s = "123.456"
+  sf, _ := strconv.ParseFloat(s, 64)
+  sf = sf + 0.1
+  fmt.Println(sf) // -> 123.556
 
 }
